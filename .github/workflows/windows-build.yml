@@ -1,0 +1,36 @@
+name: Build Windows Server
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'windows/**'
+  pull_request:
+    branches: [ master ]
+    paths:
+      - 'windows/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore windows/WifiAudioBridge/WifiAudioBridge.csproj
+
+      - name: Build
+        run: dotnet build windows/WifiAudioBridge/WifiAudioBridge.csproj --configuration Release --no-restore
+
+      - name: Upload EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: wifi-audio-bridge-server
+          path: windows/WifiAudioBridge/bin/Release/net8.0-windows/WifiAudioBridge.exe
