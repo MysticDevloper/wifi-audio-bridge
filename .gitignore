@@ -1,0 +1,28 @@
+# Android
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+android/*.iml
+android/captures/
+android/externalNativeBuild/
+android/app/.cxx/
+android/.cxx/
+
+# Windows
+windows/**/bin/
+windows/**/obj/
+windows/**/*.user
+windows/**/packages/
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE
+.vs/
+*.suo
+*.userosscache

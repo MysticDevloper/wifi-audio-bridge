@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF0F0F0">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WiFi Audio Bridge"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#FF1A1A2E" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="44.1 kHz \u00B7 16-bit \u00B7 Mono \u00B7 Bidirectional"
+                android:textSize="12sp"
+                android:textColor="#FF6C6C80" />
+        </LinearLayout>
+
+        <!-- Status Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp">
+
+            <View
+                android:id="@+id/statusDot"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ready"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#FF1A1A2E" />
+
+            <TextView
+                android:id="@+id/latencyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="12sp"
+                android:textColor="#FF6C6C80" />
+        </LinearLayout>
+
+        <!-- MIC Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="6dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="MICROPHONE"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#FF1A1A2E" />
+
+                <TextView
+                    android:id="@+id/micLevelText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0%"
+                    android:textSize="13sp"
+                    android:textColor="#FF6C6C80"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/micMuteBtn"
+                    android:layout_width="42dp"
+                    android:layout_height="36dp"
+                    android:text="\uD83D\uDD0A"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_card"
+                    android:padding="4dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/micLevelBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:max="100"
+                android:progress="0"
+                android:progressDrawable="@drawable/vu_meter_mic"
+                android:background="@null" />
+        </LinearLayout>
+
+        <!-- SPEAKER Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="6dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="SPEAKER"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#FF1A1A2E" />
+
+                <TextView
+                    android:id="@+id/spkLevelText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0%"
+                    android:textSize="13sp"
+                    android:textColor="#FF6C6C80"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/spkMuteBtn"
+                    android:layout_width="42dp"
+                    android:layout_height="36dp"
+                    android:text="\uD83D\uDD0A"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_card"
+                    android:padding="4dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/spkLevelBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:max="100"
+                android:progress="0"
+                android:progressDrawable="@drawable/vu_meter_spk"
+                android:background="@null" />
+        </LinearLayout>
+
+        <!-- Network Stats Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NETWORK"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="#FF6C6C80"
+                android:layout_marginBottom="6dp"
+                android:letterSpacing="0.08" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="4dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Upload"
+                    android:textSize="13sp"
+                    android:textColor="#FF1A1A2E" />
+
+                <TextView
+                    android:id="@+id/txRateText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 KB/s"
+                    android:textSize="13sp"
+                    android:textColor="#FF1A1A2E"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="4dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Download"
+                    android:textSize="13sp"
+                    android:textColor="#FF1A1A2E" />
+
+                <TextView
+                    android:id="@+id/rxRateText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 KB/s"
+                    android:textSize="13sp"
+                    android:textColor="#FF1A1A2E"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Buffer"
+                    android:textSize="13sp"
+                    android:textColor="#FF1A1A2E" />
+
+                <TextView
+                    android:id="@+id/bufferText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 ms"
+                    android:textSize="13sp"
+                    android:textColor="#FF1A1A2E"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Connection Controls -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/ipInput"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:hint="Server IP"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textSize="14sp"
+                android:background="@drawable/bg_card"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/connectBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                android:text="Connect"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#FF1A1A2E"
+                android:paddingHorizontal="20dp"
+                style="@style/Widget.Material3.Button" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/discoverBtn"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Auto-Discover Server"
+            android:textSize="14sp"
+            android:textColor="#FF1A1A2E"
+            android:backgroundTint="#FFE8E8F0"
+            style="@style/Widget.Material3.Button" />
+    </LinearLayout>
+</ScrollView>
