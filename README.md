@@ -13,6 +13,18 @@ Bidirectional real-time audio streaming between Android and Windows over WiFi. T
 
 ---
 
+## Screenshots
+
+| Android App (connected) | Android App (disconnected) |
+|-------------------------|---------------------------|
+| ![Android Connected](https://github.com/MysticDevloper/wifi-audio-bridge/raw/master/Screenshots/Android-APPGUI%20.jpeg) | ![Android Disconnected](https://github.com/MysticDevloper/wifi-audio-bridge/raw/master/Screenshots/Android-APPGUI-Disconnected.jpeg) |
+
+| Windows Server (idle) | Windows Server (streaming) |
+|------------------------|---------------------------|
+| ![Windows Idle](https://github.com/MysticDevloper/wifi-audio-bridge/raw/master/Screenshots/WinodwsAPPGUI.png) | ![Windows Streaming](https://github.com/MysticDevloper/wifi-audio-bridge/raw/master/Screenshots/WinodwsAPPGUI-connected%20and%20Streaming%20.png) |
+
+---
+
 ## Features
 
 - **Bidirectional audio** — Phone mic streams to PC speakers; PC mic streams to phone speaker
@@ -24,12 +36,6 @@ Bidirectional real-time audio streaming between Android and Windows over WiFi. T
 - **Mute controls** — Independent mute for mic and speaker on both sides
 - **Foreground service** — Android foreground service with persistent notification
 - **Single-client** — Windows server handles one Android device at a time
-
-## Screenshots
-
-| Android App | Windows Server |
-|-------------|---------------|
-| *(add screenshot here)* | *(add screenshot here)* |
 
 ## Quick Start
 
